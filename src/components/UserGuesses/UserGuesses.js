@@ -3,9 +3,11 @@ import React from "react";
 function UserGuesses({ words }) {
   return (
     <div className="guess-results">
-      {words.map((word) => (
-        <p className="guess" key={Math.random()}>{word}</p>
-        ))}
+      {words.map((word, index) => (
+        <p className="guess" key={index}>
+          {word}
+        </p>
+      ))}
     </div>
   );
 }

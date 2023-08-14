@@ -13,10 +13,14 @@ console.info({ answer });
 function Game() {
   const [words, setWords] = React.useState([]);
 
+  function guessesHandler(guess) {
+    setWords([...words, guess]);
+  }
+
   return (
     <>
-      <UserGuesses  words={words}/>
-      <UserInput words={words} setWords={setWords} />
+      <UserGuesses words={words} />
+      <UserInput guessesHandler={guessesHandler} />
     </>
   );
 }

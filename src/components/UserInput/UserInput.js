@@ -1,14 +1,11 @@
 import React from "react";
 
-function UserInput({words, setWords}) {
-
+function UserInput({ guessesHandler }) {
   const [guess, setGuess] = React.useState("");
 
   function inputHandler(event) {
     event.preventDefault();
-    console.log({ guess });
-    const newArr = [...words, guess];
-    setWords(newArr);
+    guessesHandler(guess);
     setGuess(" ");
   }
 
