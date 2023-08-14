@@ -1,12 +1,12 @@
 import React from "react";
 
-function UserInput({ guessesHandler }) {
+function UserInput({ guessesHandler, gameStatus }) {
   const [guess, setGuess] = React.useState("");
 
   function inputHandler(event) {
     event.preventDefault();
     guessesHandler(guess);
-    setGuess(" ");
+    setGuess("");
   }
 
   return (
@@ -19,6 +19,7 @@ function UserInput({ guessesHandler }) {
         id="guess-input"
         type="text"
         required
+        disabled={gameStatus !== "running"}
         minLength={5}
         maxLength={5}
         pattern="[a-zA-Z]{5}"
